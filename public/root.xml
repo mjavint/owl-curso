@@ -1,5 +1,7 @@
 <templates>
   <t t-name="Root">
-    <div>hello owl</div>
+    <main>
+      <h1>Curso de Udemy</h1>
+    </main>
   </t>
 </templates>
