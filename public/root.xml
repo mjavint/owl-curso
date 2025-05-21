@@ -2,7 +2,7 @@
   <t t-name="Root">
     <main class="container">
       <h1>Curso de Owl 2</h1>
-      <UserProfile/>
+      <ProductList/>
     </main>
   </t>
 </templates>

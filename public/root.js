@@ -1,7 +1,7 @@
 import { Component } from "@odoo/owl";
-import { UserProfile } from "./components/user/UserProfile";
+import { ProductList } from "./components/product/ProductList";
 
 export class Root extends Component {
   static template = "Root";
-  static components = { UserProfile };
+  static components = { ProductList };
 }
