@@ -1,7 +1,7 @@
 <templates>
   <t t-name="Root">
     <main>
-      <h1>Curso de Udemy</h1>
+      <h1>Curso de Owl 2</h1>
     </main>
   </t>
 </templates>
