@@ -11,7 +11,7 @@ export class Product extends Component {
 
   static props = {
     product: {
-      typeof: Object,
+      type: Object,
       shape: {
         id: { type: Number, required: true },
         name: { type: String, required: true },
