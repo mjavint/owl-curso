@@ -1,7 +1,8 @@
 <templates>
   <t t-name="Root">
-    <main>
+    <main class="container">
       <h1>Curso de Owl 2</h1>
+      <Parent/>
     </main>
   </t>
 </templates>
