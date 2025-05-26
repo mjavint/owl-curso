@@ -2,11 +2,12 @@ import { Component, xml } from "@odoo/owl";
 
 export class Product extends Component {
   static template = xml`
-        <div class="product">
-            <span><t t-esc="props.product.name"/> - $<t t-esc="props.product.price"/></span>
-            <button t-on-click="onDeleteProduct">Eliminar</button>
-        </div>
-    `;
+    <div class="product">
+        <span><t t-esc="props.product.name"/></span>
+        <span>Price - $<t t-esc="props.product.price"/></span>
+        <button t-on-click="onDeleteProduct">Eliminar</button>
+    </div>
+  `;
 
   static props = {
     product: {
