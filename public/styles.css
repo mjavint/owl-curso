@@ -5,27 +5,22 @@ body {
 
 main{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* height: 100vh; */
+    justify-content: space-between;
+}
+
+section{
+    min-width: 300px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 button {
     padding: 10px 15px;
     margin: 5px;
     font-size: 16px;
-}
-
-.container{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.box{
-    min-width: 300px;
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
 }
