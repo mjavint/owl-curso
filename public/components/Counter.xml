@@ -3,11 +3,11 @@
         <section>
             <h2>Counter</h2>
             <p>
-				Count: <span t-esc="state.count"/>
+				Count: <span t-esc="counter.count"/>
             </p>
             <div class="button-container">
-                <button t-on-click="increment">Increment</button>
-                <button t-on-click="decrement">Decrement</button>
+                <button t-on-click="counter.increment">Increment</button>
+                <button t-on-click="counter.decrement">Decrement</button>
             </div>
         </section>
     </t>

@@ -3,6 +3,8 @@
     <main>
       <h1>Curso de Owl 2</h1>
       <Counter/>
+      <Counter/>
+      <Counter/>
     </main>
   </t>
 </templates>
