@@ -1,0 +1,14 @@
+<templates>
+    <t t-name="Counter">
+        <section>
+            <h2>Counter</h2>
+            <p>
+				Count: <span t-esc="state.count"/>
+            </p>
+            <div class="button-container">
+                <button t-on-click="increment">Increment</button>
+                <button t-on-click="decrement">Decrement</button>
+            </div>
+        </section>
+    </t>
+</templates>

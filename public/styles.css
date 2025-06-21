@@ -24,3 +24,8 @@ button {
     margin: 5px;
     font-size: 1rem;
 }
+
+.button-container{
+    display: flex;
+    justify-content: space-between;
+}
