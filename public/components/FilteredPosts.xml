@@ -1,0 +1,35 @@
+<templates>
+    <t t-name="FilteredPosts">
+        <div class="container">
+            <div class="box" t-ref="box">
+                <div class="user-controls">
+                    <span>Usuario ID: <t t-esc="state.userId"/>
+                    </span>
+                    <div>
+                        <button t-on-click="()=>this.changeUser(-1)">Anterior</button>
+                        <button t-on-click="()=>this.changeUser(1)">Siguiente</button>
+                        <button t-on-click="changeColor">Cambiar Color</button>
+                    </div>
+                </div>
+                <!-- Estados -->
+                <div t-if="state.loading" class="status-box loading">
+                    Cargando Posts...
+                </div>
+                <div t-if="state.posts.length === 0" class="status-box error">
+                    No se encontraron Posts. <t t-esc="state.userId"/>
+ o Existen errores.
+                </div>
+                <div t-if="!state.loading || state.error" class="posts-container">
+                    <div class="post" t-foreach="state.posts" t-as="post" t-key="post.id">
+                        <h3>
+                            <t t-esc="post.title"/>
+                        </h3>
+                        <p>
+                            <t t-esc="post.body"/>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>
