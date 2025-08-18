@@ -8,7 +8,7 @@ export class User extends Component {
         <!-- Uso de t-att-class -->
         <p>
         Status:
-        <span t-att-class="props.user.active ? 'active' : ''">
+        <span>
             <t t-esc="props.user.active ? 'Active': 'Inactive'"/>
         </span>
         </p>
