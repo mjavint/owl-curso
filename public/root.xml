@@ -2,6 +2,7 @@
   <t t-name="Root">
     <main>
       <h1>Curso de Owl 2</h1>
+      <Directive/>
     </main>
   </t>
 </templates>

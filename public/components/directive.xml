@@ -1,0 +1,32 @@
+<templates>
+    <t t-name="Directive">
+        <h1>Directivas Qweb en OWL</h1>
+
+        <!-- Uso de t-set -->
+        <t t-set="greeting" t-value="'Bienvenidos, ' + state.username"/>
+        <h2 t-esc="greeting"/>
+
+        <!-- Uso de t-model -->
+        <div class="card">
+            <label>Nombre de Usuario: </label>
+            <input type="text" t-model.lazy="state.username"/>
+        </div>
+
+        <!-- Uso de t-if/elif/else -->
+        <div class="card" t-if="state.users.length">
+            <h2>Lista de Usuarios</h2>
+            <p>
+                <t t-esc="'Usuarios: ' + state.users.length"/>
+            </p>
+            <p>
+                <t t-esc="'Activos: ' + activeCount"/>
+            </p>
+            <!-- Uso de t-foreach/as/key -->
+            <ul class="user-list">
+                <li t-foreach="state.users" t-as="user" t-key="user.id" t-att-class="user.active ? 'active' : ''">
+                    <User user="user" />
+                </li>
+            </ul>
+        </div>
+    </t>
+</templates>
