@@ -1,32 +1,37 @@
 <templates>
     <t t-name="Directive">
-        <h1>Directivas Qweb en OWL</h1>
+        <h2>Directivas Qweb en OWL</h2>
 
         <!-- Uso de t-set -->
         <t t-set="greeting" t-value="'Bienvenidos, ' + state.username"/>
-        <h2 t-esc="greeting"/>
+        <h3 t-esc="greeting"/>
 
         <!-- Uso de t-model -->
-        <div class="card">
+        <section>
             <label>Nombre de Usuario: </label>
-            <input type="text" t-model.lazy="state.username"/>
-        </div>
+            <input type="text" t-model="state.username"/>
+        </section>
 
-        <!-- Uso de t-if/elif/else -->
-        <div class="card" t-if="state.users.length">
-            <h2>Lista de Usuarios</h2>
+        <section>
+            <h3>Lista de Usuarios</h3>
             <p>
-                <t t-esc="'Usuarios: ' + state.users.length"/>
+                <t t-out="'Usuarios: ' + state.users.length"/>
             </p>
             <p>
-                <t t-esc="'Activos: ' + activeCount"/>
+                <t t-out="'Activos: ' + activeCount"/>
             </p>
-            <!-- Uso de t-foreach/as/key -->
-            <ul class="user-list">
-                <li t-foreach="state.users" t-as="user" t-key="user.id" t-att-class="user.active ? 'active' : ''">
-                    <User user="user" />
-                </li>
-            </ul>
-        </div>
+            <div t-if="state.users.length" class="user-list">
+                <aside t-foreach="state.users" t-as="user" t-key="user.id" t-att-class="user.active ? 'active' : ''">
+                    <User user="user" onToggle.bind="toggleUserStatus" onDelete.bind="deleteUser"/>
+                </aside>
+            </div>
+            <div t-else="">
+                <h3>No hay usuarios disponibles</h3>
+            </div>
+            <div class="btns-container">
+                <button t-on-click="addUser">Agregar Usuario</button>
+                <button t-on-click="resetUsers">Reset</button>
+            </div>
+        </section>
     </t>
 </templates>

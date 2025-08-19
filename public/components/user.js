@@ -2,16 +2,26 @@ import { Component, xml } from "@odoo/owl";
 
 export class User extends Component {
   static template = xml`
-    <div class="user-item">
+    <article>
         <h3 t-esc="props.user.name"/>
-        <p>Email: <t t-esc="props.user.email"/></p>
-        <!-- Uso de t-att-class -->
         <p>
-        Status:
-        <span>
-            <t t-esc="props.user.active ? 'Active': 'Inactive'"/>
-        </span>
+            <t t-esc="props.user.email"/>
         </p>
-    </div>
+        <p>
+            <t t-esc="props.user.active ? 'Active': 'Inactive'"/>
+        </p>
+        <div class="btns-container">
+            <button t-on-click="toggleActive">Toggle Status</button>
+            <button t-on-click="deleteUser">Delete</button>
+        </div>
+    </article>
     `;
+
+  toggleActive() {
+    this.props.onToggle(this.props.user.id);
+  }
+
+  deleteUser() {
+    this.props.onDelete(this.props.user.id);
+  }
 }
