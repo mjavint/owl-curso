@@ -2,7 +2,39 @@
   <t t-name="Root">
     <main>
       <h1>Curso de Owl 2</h1>
-      <Directive/>
+      <section class="user-list-section">
+        <!-- <h3>Lista de Usuarios</h3> -->
+        <div class="user-panel">
+          <!-- Panel de Estadísticas -->
+          <div class="stats-badges">
+            <StatsBadge label="'Total Usuarios'"
+              className="'badge-primary'"
+              quantity="users.length" />
+            <StatsBadge label="'Usuarios Activos'"
+              className="'badge-secondary'"
+              quantity="activeCount" />
+          </div>
+          <!-- Barra de búsqueda: filtra por nombre o email -->
+          <div class="search-section">
+            <div class="search-input-group">
+              <input type="text"
+                placeholder="Buscar por nombre o email..."
+                t-model="search.search"/>
+              <button t-if="search.search"
+                t-on-click="clearSearch"
+                class="btn-search-clear">✕</button>
+            </div>
+          </div>
+          <!-- Botones de Acción -->
+          <div class="buttons-action">
+          </div>
+          <button t-on-click="addUser"
+            class="btn-add">
+            <i class="fa fa-plus"></i>
+          </button>
+        </div>
+        <UserList users="filteredUsers"/>
+      </section>
     </main>
   </t>
 </templates>

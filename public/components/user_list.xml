@@ -1,0 +1,19 @@
+<templates>
+    <t t-name="UserList">
+
+        <div t-if="props.users.length"
+            class="user-list">
+            <t t-foreach="props.users"
+                t-as="user"
+                t-key="user.id">
+                <User user="user"
+                    onToggle.bind="toggleUserStatus"
+                    onDelete.bind="deleteUser"/>
+            </t>
+        </div>
+        <div t-else=""
+            class="no-results">
+            <h3>No hay usuarios que coincidan con la búsqueda</h3>
+        </div>
+    </t>
+</templates>
