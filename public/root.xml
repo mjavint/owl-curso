@@ -9,7 +9,7 @@
           <div class="stats-badges">
             <StatsBadge label="'Total Usuarios'"
               className="'badge-primary'"
-              quantity="users.length" />
+              quantity="state.users.length" />
             <StatsBadge label="'Usuarios Activos'"
               className="'badge-secondary'"
               quantity="activeCount" />
@@ -19,8 +19,8 @@
             <div class="search-input-group">
               <input type="text"
                 placeholder="Buscar por nombre o email..."
-                t-model="search.search"/>
-              <button t-if="search.search"
+                t-model="state.search"/>
+              <button t-if="state.search"
                 t-on-click="clearSearch"
                 class="btn-search-clear">✕</button>
             </div>
@@ -28,13 +28,56 @@
           <!-- Botones de Acción -->
           <div class="buttons-action">
           </div>
-          <button t-on-click="addUser"
+          <button t-on-click="openModal"
             class="btn-add">
             <i class="fa fa-plus"></i>
           </button>
         </div>
         <UserList users="filteredUsers"/>
       </section>
+      <div id="modal-portal"></div>
+      <Modal isOpen="state.modalOpen"
+        title="'Agregar Usuario'"
+        onClose.bind="closeModal"
+        onConfirm.bind="handleConfirm">
+        <div class="modal-form">
+          <div class="form-group">
+            <label for="user-name">Nombre</label>
+            <input type="text"
+              id="user-name"
+              t-model="state.newUser.name"
+              placeholder="Nombre completo"/>
+          </div>
+          <div class="form-group">
+            <label for="user-username">Nombre de usuario</label>
+            <input type="text"
+              id="user-username"
+              t-model="state.newUser.username"
+              placeholder="Usuario"/>
+          </div>
+          <div class="form-group">
+            <label for="user-email">Correo electrónico</label>
+            <input type="text"
+              id="user-email"
+              t-model="state.newUser.email"
+              placeholder="user@example.com"/>
+          </div>
+          <div class="form-group">
+            <label for="user-phone">Teléfono</label>
+            <input type="text"
+              id="user-phone"
+              t-model="state.newUser.phone"
+              placeholder="1-770-736-8031"/>
+          </div>
+          <div class="form-group">
+            <label for="user-website">Sitio web</label>
+            <input type="text"
+              id="user-website"
+              t-model="state.newUser.website"
+              placeholder="example.com"/>
+          </div>
+        </div>
+      </Modal>
     </main>
   </t>
 </templates>

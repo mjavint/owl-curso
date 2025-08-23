@@ -5,10 +5,6 @@ export class UserList extends Component {
   static template = "UserList";
   static components = { User };
 
-  setup() {
-    // this.users = useState([...users]);
-  }
-
   toggleUserStatus(userId) {
     const user = this.props.users.find((user) => user.id === userId);
     if (user) {
