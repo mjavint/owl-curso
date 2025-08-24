@@ -33,11 +33,12 @@
             <i class="fa fa-plus"></i>
           </button>
         </div>
-        <UserList users="filteredUsers"/>
+        <UserList users="filteredUsers"
+          onEditUser.bind="editUser"/>
       </section>
       <div id="modal-portal"></div>
       <Modal isOpen="state.modalOpen"
-        title="'Agregar Usuario'"
+        title="modalTitle"
         onClose.bind="closeModal"
         onConfirm.bind="handleConfirm">
         <div class="modal-form">

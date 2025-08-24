@@ -8,7 +8,8 @@
                 t-key="user.id">
                 <User user="user"
                     onToggle.bind="toggleUserStatus"
-                    onDelete.bind="deleteUser"/>
+                    onDelete.bind="deleteUser"
+                    onEdit.bind="editUser"/>
             </t>
         </div>
         <div t-else=""

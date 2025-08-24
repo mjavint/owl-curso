@@ -2,7 +2,7 @@ import { Component, xml } from "@odoo/owl";
 
 export class User extends Component {
   static template = xml`
-    <article class="badge" t-att-class="props.user.active ? 'badge-secondary': 'badge-gray'">
+    <article class="badge" t-att-class="props.user.active ? 'badge-secondary': 'badge-gray'" t-on-click="editUser">
         <h3 t-esc="props.user.name"/>
         <p>
             <t t-esc="props.user.username"/>
@@ -16,10 +16,10 @@ export class User extends Component {
         <p>
             <t t-esc="props.user.website"/>
         </p>
-        <button class="btn-rounded btn-delete" t-on-click="deleteUser">
+        <button class="btn-rounded btn-delete" t-on-click.stop="deleteUser">
             <i class="fa fa-trash"></i>
         </button>
-        <button class="btn-rounded btn-toggle" t-on-click="toggleActive">
+        <button class="btn-rounded btn-toggle" t-on-click.stop="toggleActive">
             <i class="fa" t-att-class="props.user.active ? 'fa-check': 'fa-times'"/>
         </button>
     </article>
@@ -31,5 +31,9 @@ export class User extends Component {
 
   deleteUser() {
     this.props.onDelete(this.props.user.id);
+  }
+
+  editUser() {
+    this.props.onEdit(this.props.user);
   }
 }

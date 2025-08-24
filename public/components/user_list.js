@@ -18,4 +18,8 @@ export class UserList extends Component {
       1
     );
   }
+
+  editUser(user) {
+    this.props.onEditUser(user);
+  }
 }

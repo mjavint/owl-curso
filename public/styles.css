@@ -340,6 +340,7 @@ article p {
   position: relative;
   overflow: hidden;
   color: var(--text-primary);
+  cursor: pointer;
 }
 
 .badge::before {
