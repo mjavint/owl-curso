@@ -2,6 +2,30 @@
   <t t-name="Root">
     <main>
       <h1>Curso de Owl 2</h1>
+      <div class="container">
+        <h1>Modal Simple con t-portal</h1>
+        <p>Uso de la directiva t-portal para renderizar un modal fuera del árbol DOM principal.</p>
+
+        <button class="btn"
+          t-on-click="openModal">Abrir Modal</button>
+
+        <!-- Componente Modal -->
+        <Modal isOpen="state.modalOpen"
+          title="'Confirmación Importante'"
+          onClose.bind="closeModal"
+          t-if="state.modalOpen">
+          <t t-set-slot="body">
+            <p>¿Estás seguro de que deseas realizar esta acción?</p>
+          </t>
+          <t t-set-slot="footer">
+            <button class="btn btn-cancel"
+              t-on-click="closeModal">Cancelar</button>
+            <button class="btn btn-confirm"
+              t-on-click="handleConfirm">Aceptar</button>
+          </t>
+        </Modal>
+      </div>
+      <div id="modal-portal"></div>
     </main>
   </t>
 </templates>
